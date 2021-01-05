@@ -6,18 +6,13 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
+      name: "text",
+      title: "Test",
       type: "string"
     },
     {
-      name: "body",
-      title: "Body",
-      type: "string"
-    },
-    {
-      name: "mainImage",
-      title: "Main image",
+      name: "image",
+      title: "Image",
       type: "figure"
     },
     {
@@ -30,7 +25,7 @@ export default {
   preview: {
     select: {
       title: "title",
-      media: "mainImage"
+      media: "image"
     }
   }
 };
