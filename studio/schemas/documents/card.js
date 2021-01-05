@@ -24,8 +24,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
-      media: "text"
+      title: "text",
+      media: "image"
     }
   }
 };
