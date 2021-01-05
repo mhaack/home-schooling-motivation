@@ -5,13 +5,14 @@
 }
 
 .title {
-  composes: responsiveTitle1 from './typography.module.css';
+  composes: responsiveTitle3 from './typography.module.css';
 }
 
 .leadMediaThumb {
   position: relative;
-  padding-bottom: 66.666%;
+  padding-bottom: 20%;
   background: #eee;
+  height: 300px;
 
   @nest & img {
     position: absolute;
