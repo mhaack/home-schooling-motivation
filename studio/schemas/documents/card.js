@@ -7,7 +7,7 @@ export default {
   fields: [
     {
       name: "text",
-      title: "Test",
+      title: "Text",
       type: "string"
     },
     {
@@ -25,7 +25,7 @@ export default {
   preview: {
     select: {
       title: "title",
-      media: "image"
+      media: "text"
     }
   }
 };
