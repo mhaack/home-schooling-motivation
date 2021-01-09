@@ -4,9 +4,16 @@ export default {
   type: "document",
   fields: [
     {
-      name: "text",
+      name: "title",
       title: "Text",
-      type: "string"
+      type: "string",
+      validation: Rule => Rule.required().min(5).max(20)
+    },
+    {
+      title: 'Text', 
+      name: 'text',
+      type: 'array', 
+      of: [{type: 'block', styles: [], lists: []}]
     },
     {
       name: "image",
@@ -22,7 +29,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "text",
+      title: "title",
       media: "image"
     }
   }
