@@ -4,12 +4,17 @@ import Image from "gatsby-image";
 function Card(props) {
   return (
     <div className="p-2">
-      <div className="mt-2 mb-8">
+      <h2 className="mt-4 text-center text-2xl font-bold">{props.title}</h2>
         {props.image && props.image.asset && (
-          <Image className="rounded-xl" fluid={props.image.asset.fluid} alt={props.image.alt} />
+                <div className="mt-2 mb-8">
+          <Image className="max-h-96" fluid={props.image.asset.fluid} alt={props.image.alt} />
+          </div>
         )}
-      </div>
-      <h3 className="text-center text-2xl font-bold">{props.text}</h3>
+      <p className="text-center text-xl">
+        {props.text.split('\n').map((item, key) => {
+          return <span key={key}>{item}<br/></span>
+        })}
+      </p>
     </div>
   );
 }

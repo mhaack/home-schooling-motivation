@@ -70,7 +70,7 @@ const Deck = ({ items }) => {
     >
       <animated.div
         {...bind(i)}
-        className="rounded-xl bg-gradient-to-b from-blue-100 to-purple-200"
+        className="rounded-xl bg-gradient-to-b from-blue-50 to-purple-100"
         id="deck-card"
         style={{ transform: interpolate([rot, scale], trans) }}
       >
