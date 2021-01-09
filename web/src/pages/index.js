@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "../components/container";
+import { shuffle } from "lodash";
+
+import Layout from "../components/layout";
 import GraphQLErrorList from "../components/graphql-error-list";
-import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
-import Layout from "../containers/layout";
+import Deck from "../components/deck";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -19,6 +20,7 @@ export const query = graphql`
           id
           text
           image {
+            alt
             asset {
               fluid {
                 ...GatsbySanityImageFluid
@@ -30,8 +32,7 @@ export const query = graphql`
     }
   }
 `;
-
-const IndexPage = props => {
+const IndexPage = (props) => {
   const { data, errors } = props;
 
   if (errors) {
@@ -43,23 +44,28 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  const cards = (data || {}).cards;
-
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
     );
   }
 
+  const cards = (data || {}).cards;
+  const cardItems = shuffle(cards.edges);
+
   return (
     <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {cards && (
-          <ProjectPreviewGrid title="Latest projects" nodes={cards} browseMoreHref="/archive/" />
-        )}
-      </Container>
+      <SEO
+        title={site.title}
+        description={site.description}
+        keywords={site.keywords}
+      />
+      <Deck items={cardItems} />
+      <div className="flex items-center justify-center h-screen">
+        <div>
+          <h1 className="font-bold">Home Schooling ist super!</h1>
+        </div>
+      </div>
     </Layout>
   );
 };

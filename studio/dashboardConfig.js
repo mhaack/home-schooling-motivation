@@ -44,7 +44,7 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent Cards', order: '_createdAt desc', types: ['cards']},
+      options: {title: 'Recent Cards', order: '_createdAt desc', types: ['card']},
       layout: {width: 'medium'}
     }
   ]
