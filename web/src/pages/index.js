@@ -9,10 +9,10 @@ import Deck from "../components/deck";
 
 export const query = graphql`
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
+    site {
+      siteMetadata {
+        title
+      }
     }
     cards: allSanityCard(limit: 6) {
       edges {
@@ -44,23 +44,13 @@ const IndexPage = (props) => {
     );
   }
 
-  const site = (data || {}).site;
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    );
-  }
-
+  const site = (data || {}).site.siteMetadata;
   const cards = (data || {}).cards;
   const cardItems = shuffle(cards.edges);
 
   return (
     <Layout>
-      <SEO
-        title={site.title}
-        description={site.description}
-        keywords={site.keywords}
-      />
+      <SEO title={site.title} />
       <Deck items={cardItems} />
       <div className="flex items-center justify-center h-screen">
         <div>

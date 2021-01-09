@@ -7,7 +7,6 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 // Document types
 import category from "./documents/category";
 import card from "./documents/card";
-import siteSettings from "./documents/siteSettings";
 
 // Object types
 import figure from "./objects/figure";
@@ -25,7 +24,6 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     category,
-    card,
-    siteSettings
+    card
   ])
 });

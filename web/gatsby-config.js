@@ -9,12 +9,11 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    title: `Home Schooling is cool!`,
+    title: `Home School Motivation`,
     author: {
       name: `Markus Haack`,
-      summary: `...`
     },
-    description: `...`,
+    description: `Home Schooling is cool!`,
     siteUrl: `https://home-schooling-motivation.netlify.app/`,
     social: {
       twitter: `mhaack`
